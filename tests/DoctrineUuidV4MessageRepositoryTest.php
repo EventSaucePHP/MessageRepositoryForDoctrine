@@ -1,11 +1,13 @@
 <?php
 
-namespace EventSauce\MessageRepository\DoctrineMessageRepository;
+namespace EventSauce\MessageRepository\DoctrineMessageRepository\Test;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer;
+use EventSauce\MessageRepository\DoctrineMessageRepository\DoctrineUuidV4MessageRepository;
+use EventSauce\MessageRepository\DoctrineMessageRepository\DummyAggregateRootId;
 use EventSauce\MessageRepository\TestTooling\MessageRepositoryTestCase;
 use Ramsey\Uuid\Uuid;
 
