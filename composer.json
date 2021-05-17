@@ -3,19 +3,36 @@
     "description": "Message Repository for Doctrine 3",
     "autoload": {
         "psr-4": {
-            "EventSauce\\DoctrineMessageRepository\\": "./"
+            "EventSauce\\MessageRepository\\DoctrineMessageRepository\\": "./src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EventSauce\\MessageRepository\\DoctrineMessageRepository\\Test\\": "./tests/"
         }
     },
     "require": {
+        "php": ">=7.4",
         "doctrine/dbal": "^3.1",
         "eventsauce/eventsauce": "^1.0",
         "ramsey/uuid": "^4.1"
+    },
+    "require-dev": {
+        "eventsauce/test-utilities": "^1.0",
+        "eventsauce/message-repository-test-tooling": "^0.1.0",
+        "eventsauce/message-outbox-test-tooling": "dev-patch-1"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "Frank de Jonge",
             "email": "info@frankdejonge.nl"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/Nek-/MessageOutboxTestTooling.git"
         }
     ]
 }
