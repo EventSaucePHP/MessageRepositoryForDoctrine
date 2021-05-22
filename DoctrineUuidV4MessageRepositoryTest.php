@@ -3,11 +3,14 @@
 namespace EventSauce\MessageRepository\DoctrineMessageRepository;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Driver\ResultStatement;
 use Doctrine\DBAL\DriverManager;
 use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer;
 use EventSauce\MessageRepository\TestTooling\MessageRepositoryTestCase;
 use Ramsey\Uuid\Uuid;
+
+use function class_exists;
 
 class DoctrineUuidV4MessageRepositoryTest extends MessageRepositoryTestCase
 {
@@ -15,6 +18,10 @@ class DoctrineUuidV4MessageRepositoryTest extends MessageRepositoryTestCase
 
     protected function setUp(): void
     {
+        if (class_exists(ResultStatement::class)) {
+            $this->markTestSkipped('Doctrine v2 installed');
+        }
+
         parent::setUp();
         $connection = DriverManager::getConnection(
             [
